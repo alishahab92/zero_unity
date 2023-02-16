@@ -6,7 +6,7 @@
 
 
     <!-- send robot urdf to param server -->
-    <!-- <rosparam param="robot_description" file="$(find zero_sim_ros_b)/urdf/ur10.urdf" command="load"/> -->
+    <!-- <rosparam param="robot_description" file="$(find zero_sim_ros_b)/urdf/ur5.urdf" command="load"/> -->
     <!-- send robot urdf to param server -->
     <include file="$(find ur_description)/launch/ur5_upload.launch">
         <arg name="limited" value="false"/>
@@ -14,7 +14,7 @@
 
     <!-- start this controller -->
     <rosparam file="$(find zero_sim_ros_b)/controller/ur5_controller.yaml" command="load"/>
-    <node name="ur10_arm_controller_manager_spawner" pkg="controller_manager" type="spawner" ns="ur_5_control" args="arm_controller" respawn="false" output="screen"/>
+    <node name="ur5_arm_controller_manager_spawner" pkg="controller_manager" type="spawner" ns="ur_5_control" args="arm_controller" respawn="false" output="screen"/>
 
     <!-- launch ur10 planning execution -->
     <include file="$(find ur5_moveit_config)/launch/ur5_moveit_planning_execution.launch">
